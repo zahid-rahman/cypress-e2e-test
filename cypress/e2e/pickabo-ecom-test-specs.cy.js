@@ -1,8 +1,4 @@
-describe('template spec', () => {
-  // it('passes', () => {
-  //   cy.visit('https://example.cypress.io')
-  // })
-
+describe('pickabo ecommerce e2e automated test suite', () => {
   it('add a product to cart', () => {
     cy.visit('https://www.pickaboo.com/')
     cy.get('a[href="/product/electronics/"]').click()
@@ -12,9 +8,4 @@ describe('template spec', () => {
     cy.get('.hkYiNy').find('a').click()
     cy.get('a[href="/checkout/guest-cart/"]').click()
   }) 
-
-  // it('add more quantity of a product from cart', () => {
-  //   // cy.visit('https://www.pickaboo.com/checkout/guest-cart/')
-  //   // cy.get('.hdROtX').click()
-  // })
 })
