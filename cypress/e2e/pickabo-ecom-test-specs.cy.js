@@ -24,5 +24,6 @@ describe("pickabo ecommerce e2e automated test suite", () => {
       .find(".MuiButton-label")
       .contains("Login")
       .click();
+
   });
 });
