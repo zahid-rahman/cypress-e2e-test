@@ -4,7 +4,7 @@ slowCypressDown(500);
 describe("ont ecommerce place an order", () => {
   it("place an order from guest checkout", () => {
     cy.visit("http://localhost:4001/shop/product/boxer-test");
-    cy.viewport(1536, 960)
+    cy.viewport(1536, 960);
     cy.get(".text-xs").contains("Red").click();
     cy.get(".text-xs").contains("special").click();
     cy.get(".text-xs").contains("XL").click();
@@ -22,6 +22,20 @@ describe("ont ecommerce place an order", () => {
       .type("01795715448")
       .should("have.value", "01795715448");
 
+    cy.get(".city-select")
+      .click()
+      .get("#react-select-3-listbox")
+      .find(".css-1n6sfyn-MenuList")
+      .get("#react-select-3-option-2")
+      .click();
+
+    cy.get(".area-select")
+      .click()
+      .get("#react-select-7-listbox")
+      .find(".css-1n6sfyn-MenuList")
+      .get("#react-select-7-option-3")
+      .click();
+
     cy.get('[name="shippingAddress.customerEmail"]')
       .type("zahid-rahman@programming-hero.com")
       .should("have.value", "zahid-rahman@programming-hero.com");
@@ -29,20 +43,6 @@ describe("ont ecommerce place an order", () => {
     cy.get('[name="shippingAddress.fullAddress"]')
       .type("road-141, gulshan-1, dhaka")
       .should("have.value", "road-141, gulshan-1, dhaka");
-
-    cy.get(".city-select")
-      .click() 
-      .get("#react-select-3-listbox") 
-      .find(".css-1n6sfyn-MenuList")
-      .get("#react-select-3-option-2") 
-      .click(); 
-
-    cy.get(".area-select") 
-      .click() 
-      .get("#react-select-7-listbox") 
-      .find(".css-1n6sfyn-MenuList")
-      .get("#react-select-7-option-3") 
-      .click(); 
 
     cy.get("#payment-opt-1").click();
     cy.get('[type="submit"]').contains("place order").click();
